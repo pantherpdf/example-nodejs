@@ -1,0 +1,14 @@
+{
+  "name": "@pantherpdf/example-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js"
+  },
+  "author": "Ignac Banic",
+  "license": "MIT",
+  "dependencies": {
+    "pantherpdf": "^4.0.0-beta.3"
+  }
+}
