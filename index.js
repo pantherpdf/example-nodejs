@@ -8,20 +8,20 @@ const api = {};
 async function main()
 {
   // Simple text field which will generate dynamic text.
-  const text = { type: 'TextSimple', formula: '"Item " + item' };
+  const text = { type: 'TextSimple', value: { formula: '"Item " + item' }, children: [] };
 
   // Repeat Text filed for each element of an array.
   const repeat = {
     type: 'Repeat',
     children: [text],
-    source: 'data.listOfItems',
+    source: { formula: 'data.listOfItems' },
     varName: 'item',
     direction: 'row',
   };
 
   const report = {
     ...pantherpdf.emptyReport,
-    children: [repeat],
+    widgets: [repeat],
   };
 
   // Root of source data. It's accessible using `data` variable.
@@ -40,11 +40,10 @@ async function main()
     report,
     api,
     data: dataWrapper,
-    target: 'html',
   });
 
   // Print result.
-  console.log(result.body);
+  console.log(result.html);
 }
 
 main();
